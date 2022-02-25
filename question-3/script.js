@@ -14,7 +14,45 @@ console.log(`Running question #3 with args ${args}`)
  * @returns {Boolean} Returns true if string is valid.
  */
 function parenthesisChecker(str) {
-  // TODO: Implement validation logic
+  input = String(str)
+  parenthesis = []
+  
+  for (x of input) {
+    let checker = parenthesis.length - 1
+    
+    if (x == '(' || x == '{' || x == '[') {
+      parenthesis.push(x)
+      continue
+    }
+
+    if (x == ')') {
+      if (parenthesis[checker] == '(') {
+        parenthesis.pop()
+        continue
+      }
+      return false
+
+    }
+
+    if (x == '}') {
+      if (parenthesis[checker] == '{') {
+        parenthesis.pop()
+        continue
+      }
+      return false
+    }
+
+    if (x == ']') {
+      if (parenthesis[checker] == '[') {
+        parenthesis.pop()
+        continue
+      }
+      return false
+    }
+  }
+  if (parenthesis.length !== 0){
+    return false
+  }
   return true;
 }
 

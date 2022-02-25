@@ -16,4 +16,10 @@
 
 # Razonamiento
 
-_Escribir aquí los supuestos asumidos, reflexiones y explicaciones de la solución_
+Inicialmente planteé el problema en terminos de parentesis "abiertos" versus parentesis "cerrados" en donde se le asignaba un valor positivo a "abiertos" y de manera similar un valor negativo a "cerrados", siempre que la sumatoria fuera igual a 0 la funcion retornaria true.
+
+una vez finalizado este simple codigo encontre con que esta forma de afrontar el problema estaba errada ya que no evaluaba el tipo de parentesis "abierto" con el tipo del "cerrado" por lo que la cantidad no erA suficiente, pase entonces a contemplar que para cada parentesis "cerrado" encontrado el ultimo parentesis "abierto" deberia ser siempre del mismo tipo, de lo contrario la funcion retornaria false.
+
+el codigo entonces se trata de iterar la string y añadir los parentesis "abiertos" a un array vacia, mientras que si encuentra un parentesis "cerrado" evaluara el ultimo parentesis "abierto" agregado al array, si coincide en su tipo lo removera de la array y continuara, de lo contrario la funcion retornara false.
+
+Al final si la array tiene algun elemento no eliminado (length !== 0) retornara falso, en caso contrario la funcion retorna true.

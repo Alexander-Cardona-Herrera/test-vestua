@@ -5,8 +5,33 @@
  */
 
 const args = process.argv.slice(-1);
-console.log(`Running question #1 with args ${args}`)
+console.log(`Running question #1 with args ${args}`);
 
-function Algoritmo(args) {
-    if (typeof args !== )
+total = parseInt(args);
+steps = [1, 2];
+let possibilities = 0;
+'use strict';
+
+const recursion = (sum = 0) => {
+    if (sum === total) {
+        possibilities++;
+    }
+
+    else if (sum < total) {
+        for (let i = 0; i < 2; i++) {
+            recursion(steps[i] + sum);
+        }
+    }
 }
+
+const trampoline = fn => (...args) => {
+    let result = fn(...args)
+    while (typeof result === 'function') {
+      result = result()
+    }
+    return result
+  }
+
+const combination = trampoline(recursion)
+combination();
+console.log(possibilities);
